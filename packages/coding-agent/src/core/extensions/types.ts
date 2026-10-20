@@ -165,6 +165,9 @@ export interface ExtensionUIContext {
 	/** Set status text in the footer/status bar. Pass undefined to clear. */
 	setStatus(key: string, text: string | undefined): void;
 
+	/** 读取原生状态栏数据, 无需替换 footer 组件 (仅 TUI 提供). */
+	getFooterData?(): ReadonlyFooterDataProvider;
+
 	/** Set the working/loading message shown during streaming. Call with no argument to restore default. */
 	setWorkingMessage(message?: string): void;
 

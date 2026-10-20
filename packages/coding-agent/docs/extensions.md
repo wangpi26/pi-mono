@@ -253,6 +253,8 @@ Interactive mode provides the complete terminal UI.
 RPC can forward supported dialogs and notifications through the [RPC Extension UI protocol](rpc-extension-ui.md), but not custom terminal components; JSON and print modes have no UI.
 Guard terminal-only behavior with `ctx.mode === "tui"` and use `ctx.hasUI` for interactions supported by interactive and RPC clients.
 
+In TUI mode, `ctx.ui.getFooterData?.()` reads the existing footer's git branch and extension status entries without replacing its component. The method is optional for compatibility with older hosts; use `ctx.getContextUsage()` for context usage and `ctx.sessionManager.getEntries()` for cumulative usage.
+
 Keep tool and event behavior independent from rendering so non-interactive modes remain functional.
 
 <a id="error-handling"></a>
